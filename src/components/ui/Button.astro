@@ -1,0 +1,34 @@
+---
+import type { ButtonProps, Variant } from "@/lib/types";
+
+const {
+  class: className,
+  icon = false,
+  variant = "primary",
+} = Astro.props as ButtonProps;
+
+// Define variant-specific classes
+const variantClass: Record<Variant, string> = {
+  primary: "bg-accent text-lightest",
+  secondary: "bg-accenttransparent text-darkest",
+};
+
+// Common classes for both icon and non-icon buttons
+const commonClasses = "rounded-lg transition-all duration-200";
+const iconClasses = "p-2 aspect-square";
+const nonIconClasses = "px-3 py-1";
+---
+
+<div>
+  <button
+    type="button"
+    class:list={[
+      commonClasses,
+      icon ? iconClasses : nonIconClasses,
+      variantClass[variant],
+      className,
+    ]}
+  >
+    <slot />
+  </button>
+</div>

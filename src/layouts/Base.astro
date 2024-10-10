@@ -1,0 +1,34 @@
+---
+import HeadSEO from "@/components/HeadSEO.astro";
+import { LOCALE, SITE } from "@/config";
+
+import type { BaseLayoutProps } from "@/lib/types";
+
+import { capitalizeFirstLetter } from "@/lib/utils";
+
+const {
+  title,
+  description,
+  ogImage,
+  class: className,
+} = Astro.props as BaseLayoutProps;
+---
+
+<!doctype html>
+<html lang=`${LOCALE.lang ?? "en"}` class="scroll-smooth">
+  <head>
+    <HeadSEO
+      title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
+      description={description}
+      ogImage={ogImage}
+    />
+  </head>
+
+  <body>
+    <main class="flex justify-center">
+      <div class:list={["flex flex-col max-w-7xl min-h-dvh flex-1", className]}>
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>

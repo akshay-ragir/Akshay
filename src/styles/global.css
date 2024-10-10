@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --darkest: #2e3440;
+    --darker: #3b4252;
+    --dark: #4c566a;
+
+    --light: #d8dee9;
+    --lighter: #e5e9f0;
+    --lightest: #eceff4;
+
+    --accent: #5e81ac;
+
+    --accent-transparent: #5e81ac2d;
+    --blurred: #3b425259;
+  }
+}
+
+@layer base {
+  * {
+    @apply scroll-smooth transition-all font-mono;
+  }
+
+  body {
+    @apply bg-light text-darker;
+  }
+}
+
+h1 {
+  @apply scroll-m-20 font-semibold text-5xl tracking-tight pt-2;
+}
+
+h2 {
+  @apply mt-5 scroll-m-20 pb-2 text-2xl font-semibold tracking-wide first:mt-0;
+}
+
+h3 {
+  @apply mt-3 scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+h4 {
+  @apply mt-2 scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+p {
+  @apply [&:not(:first-child)]:mt-2 transition-none;
+}
+
+a {
+  @apply hover:text-accent underline decoration-dashed underline-offset-8;
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+::selection {
+  @apply bg-accent text-dark;
+}
+
+/* ===== scrollbar ===== */
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-2 h-2 transition-colors;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-darker;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-light border-darker rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}

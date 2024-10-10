@@ -1,0 +1,29 @@
+---
+import type { ExperienceProps } from "@/lib/types";
+import Button from "@/components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+
+const {
+  company,
+  location = "",
+  duration = "",
+} = Astro.props as ExperienceProps;
+---
+
+<div class="flex flex-col items-baseline">
+  <h2 class="pt-4">
+    {company}
+  </h2>
+  <div class="flex flex-row gap-4 italic text-sm font-semibold text-dark">
+    <div class="flex flex-row gap-1">
+      <Icon name="location" size={20} />
+      {location}
+    </div>
+    <div class="flex flex-row gap-1">
+      <Icon name="calendar" size={20} />
+      {duration}
+    </div>
+  </div>
+</div>
+
+<slot />

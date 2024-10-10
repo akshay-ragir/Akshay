@@ -1,0 +1,24 @@
+---
+import Base from "@/layouts/Base.astro";
+import Experience from "@/components/Experience.astro";
+
+// Experiences
+import Oracle from "@/content/experiences/Oracle.md";
+---
+
+<Base class="px-6 py-4">
+  <!-- Greeter -->
+  <div class="text-6xl self-center">Akshay Ragir</div>
+
+  <!-- Experiences -->
+  <div class="">
+    <h1>Experience</h1>
+    <Experience
+      company="Oracle Financial Services Software Limited"
+      location="Bengaluru, IN"
+      duration="Jul 2021 - Dec 2021"
+    >
+      <Oracle />
+    </Experience>
+  </div>
+</Base>
